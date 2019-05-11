@@ -7,10 +7,10 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ICreateBoard, IUpdateBoard } from './types/dto';
+import { ICreateNote, IUpdateNote } from './types/dto';
 
-@Controller('boards')
-export class BoardsController {
+@Controller('notes')
+export class notesController {
   @Get()
   findAll(): string {
     return 'all items';
@@ -22,13 +22,13 @@ export class BoardsController {
   }
 
   @Post()
-  create(@Body() createBoardDto: ICreateBoard): string {
-    return `${JSON.stringify(createBoardDto)}`;
+  create(@Body() createNoteDto: ICreateNote): string {
+    return `${JSON.stringify(createNoteDto)}`;
   }
 
   @Put(':id')
-  update(@Body() updateBoardDto: IUpdateBoard, @Param('id') id): string {
-    return `${JSON.stringify(updateBoardDto)}`;
+  update(@Body() updateNoteDto: IUpdateNote, @Param('id') id): string {
+    return `${JSON.stringify(updateNoteDto)}`;
   }
 
   @Delete(':id')
