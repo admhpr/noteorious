@@ -15,4 +15,10 @@ describe('Boards Controller', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  describe('findAll', () => {
+    it('should return an array of board objects', () => {
+      expect(controller.findAll()).toBe('all items');
+    });
+  });
 });
