@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-To analyse and look at different ways to implement the master/detail pattern using various JavaScript frameworks
+To analyse and look at different ways to implement the master/detail pattern using various JavaScript frameworks.
 
 ## Goals
 
@@ -13,6 +13,8 @@ To analyse and look at different ways to implement the master/detail pattern usi
 ## Non-Goals
 
 ## Design
+
+Uses a master/detail view.
 
 ## API
 
