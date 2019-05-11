@@ -22,6 +22,16 @@ User enters on a master view of all boards. From this screen boards can be creat
 
 ![boards](./static/wireframes/screens/boards-1.png)
 
+In the below wireframe 'Board One' has been selected:
+
+![notes](./static/wireframes/screens/notes-1.png)
+
+The Boards and Notes have the following relationship:
+
+![ERD](./static/diagrams/ERD.png)
+
+A board can have many notes and a note can only have one board.
+
 ## API
 
 ## Dependencies
