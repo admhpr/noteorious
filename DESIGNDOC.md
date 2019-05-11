@@ -38,21 +38,21 @@ A board can have many notes and a note can only have one board.
 
     /boards
 
-| Verb   |    Endpoint     |                                        Params |
-| ------ | :-------------: | --------------------------------------------: |
-| GET    |   /api/boards   |                                               |
-| POST   |   /api/boards   |                   {title: "" description: ""} |
-| PUT    | /api/boards/:id | { board_id: "1", title?: "" description?: ""} |
-| DELETE | /api/boards/:id |                              { board_id: "1"} |
+| Verb   |    Endpoint     |                                          Body | Result             |
+| ------ | :-------------: | --------------------------------------------: | ------------------ |
+| GET    |   /api/boards   |                                               | returns all boards |
+| POST   |   /api/boards   |                   {title: "" description: ""} | creates a board    |
+| PUT    | /api/boards/:id | { board_id: "1", title?: "" description?: ""} | updates a board    |
+| DELETE | /api/boards/:id |                              { board_id: "1"} | deletes a board    |
 
     /notes
 
-| Verb   |    Endpoint    |                                       Params |
-| ------ | :------------: | -------------------------------------------: |
-| GET    |   /api/notes   |                                              |
-| POST   |   /api/notes   |                  {title: "" description: ""} |
-| PUT    | /api/notes/:id | { note_id: "1", title?: "" description?: ""} |
-| DELETE | /api/notes/:id |                              { note_id: "1"} |
+| Verb   |    Endpoint    |                                         Body | Result            |
+| ------ | :------------: | -------------------------------------------: | ----------------- |
+| GET    |   /api/notes   |                                              | returns all notes |
+| POST   |   /api/notes   |                  {title: "" description: ""} | creates a note    |
+| PUT    | /api/notes/:id | { note_id: "1", title?: "" description?: ""} | updates a note    |
+| DELETE | /api/notes/:id |                              { note_id: "1"} | deletes a note    |
 
 ## Dependencies
 
