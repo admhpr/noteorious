@@ -34,6 +34,26 @@ A board can have many notes and a note can only have one board.
 
 ## API
 
+/api
+
+    /boards
+
+| Verb   |    Endpoint     |                                        Params |
+| ------ | :-------------: | --------------------------------------------: |
+| GET    |   /api/boards   |                                               |
+| POST   |   /api/boards   |                   {title: "" description: ""} |
+| PUT    | /api/boards/:id | { board_id: "1", title?: "" description?: ""} |
+| DELETE | /api/boards/:id |                              { board_id: "1"} |
+
+    /notes
+
+| Verb   |    Endpoint    |                                       Params |
+| ------ | :------------: | -------------------------------------------: |
+| GET    |   /api/notes   |                                              |
+| POST   |   /api/notes   |                  {title: "" description: ""} |
+| PUT    | /api/notes/:id | { note_id: "1", title?: "" description?: ""} |
+| DELETE | /api/notes/:id |                              { note_id: "1"} |
+
 ## Dependencies
 
 ## Testing
