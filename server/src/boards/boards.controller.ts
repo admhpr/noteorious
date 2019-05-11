@@ -8,12 +8,16 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ICreateBoard, IUpdateBoard } from './types/dto';
+import { IBoard } from './types/interfaces';
+import { BoardsService } from './boards.service';
 
 @Controller('boards')
 export class BoardsController {
+  constructor(private readonly boardsService: BoardsService) {}
+
   @Get()
-  findAll(): string {
-    return 'all items';
+  findAll(): IBoard[] {
+    return this.boardsService.findAll();
   }
 
   @Get(':id')
