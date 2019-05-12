@@ -1,7 +1,7 @@
 version: '3'
 services:
   mariadb:
-    build: ./build/mariadb
+    build: ./containers/mariadb
     volumes:
       - ./db/storage:/var/lib/mysql
     expose:
