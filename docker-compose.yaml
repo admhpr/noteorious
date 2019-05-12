@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mariadb:
+    build: ./build/mariadb
+    volumes:
+      - ./db/storage:/var/lib/mysql
+    expose:
+      - '3306'
+    ports:
+      - '3307:3306'
+    environment:
+      MYSQL_DATABASE: '${DB_NAME}'
+      MYSQL_USER: '${DB_USER}'
+      MYSQL_PASSWORD: '${DB_PASS}'
+      MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASS}'
+volumes:
+  db:
