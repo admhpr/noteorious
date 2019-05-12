@@ -24,4 +24,8 @@ export class BoardsService {
   findAll(): IBoard[] {
     return this.boards;
   }
+
+  findOne(id: string): IBoard {
+    return this.boards.find(board => board.id === id);
+  }
 }

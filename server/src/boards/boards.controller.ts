@@ -21,8 +21,8 @@ export class BoardsController {
   }
 
   @Get(':id')
-  findOne(@Param('') param): string {
-    return `${param.id}`;
+  findOne(@Param('') param): IBoard {
+    return this.boardsService.findOne(param.id);
   }
 
   @Post()
