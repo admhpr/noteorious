@@ -9,20 +9,20 @@ import {
 } from '@nestjs/common';
 import { ICreateBoard, IUpdateBoard } from './types/dto';
 import { IBoard } from './types/interfaces';
-import { BoardsService } from './board.service';
+import { BoardService } from './board.service';
 
-@Controller('boards')
-export class BoardsController {
-  constructor(private readonly boardsService: BoardsService) {}
+@Controller('board')
+export class BoardController {
+  constructor(private readonly boardService: BoardService) {}
 
   @Get()
   findAll(): IBoard[] {
-    return this.boardsService.findAll();
+    return this.boardService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('') param): IBoard {
-    return this.boardsService.findOne(param.id);
+    return this.boardService.findOne(param.id);
   }
 
   @Post()

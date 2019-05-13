@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IBoard } from './types/interfaces';
 
 @Injectable()
-export class BoardsService {
+export class BoardService {
   private readonly boards: IBoard[] = [
     {
       id: '1',

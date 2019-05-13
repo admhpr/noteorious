@@ -1,21 +1,21 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { BoardsController } from '../board.controller';
-import { BoardsService } from '../board.service';
+import { BoardController } from '../board.controller';
+import { BoardService } from '../board.service';
 import { IBoard } from '../types/interfaces';
 import { fixtures } from './fixtures';
 
-describe(' Boards Controller', () => {
-  let controller: BoardsController;
-  let service: BoardsService;
+describe(' Board Controller', () => {
+  let controller: BoardController;
+  let service: BoardService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [BoardsController],
-      providers: [BoardsService],
+      controllers: [BoardController],
+      providers: [BoardService],
     }).compile();
 
-    service = module.get<BoardsService>(BoardsService);
-    controller = module.get<BoardsController>(BoardsController);
+    service = module.get<BoardService>(BoardService);
+    controller = module.get<BoardController>(BoardController);
   });
 
   it('should be defined', () => {
