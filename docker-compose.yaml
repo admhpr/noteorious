@@ -1,5 +1,6 @@
 version: '3'
 services:
+  # database
   mariadb:
     build: ./containers/mariadb
     volumes:
@@ -13,5 +14,18 @@ services:
       MYSQL_USER: '${DB_USER}'
       MYSQL_PASSWORD: '${DB_PASS}'
       MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASS}'
+  # php myadmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - mariadb
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+    ports:
+      - '8888:80'
+    volumes:
+      - /sessions
 volumes:
   db:
