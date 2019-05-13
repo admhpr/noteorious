@@ -8,14 +8,14 @@ import { Repository } from 'typeorm';
 export class BoardService {
   constructor(
     @InjectRepository(Board)
-    private readonly boardRepository: Repository<Board>,
+    private readonly boardRepo: Repository<Board>,
   ) {}
 
   findAll(): Promise<IBoard[]> {
-    return this.boardRepository.find();
+    return this.boardRepo.find();
   }
 
   findOne(id: string): Promise<IBoard> {
-    return this.boardRepository.findOne(id);
+    return this.boardRepo.findOne(id);
   }
 }
