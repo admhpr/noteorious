@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { BoardsController } from '../boards.controller';
-import { BoardsService } from '../boards.service';
+import { BoardsController } from '../board.controller';
+import { BoardsService } from '../board.service';
 import { IBoard } from '../types/interfaces';
 import { fixtures } from './fixtures';
 

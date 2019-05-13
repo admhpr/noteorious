@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { BoardsController } from './boards/boards.controller';
-import { NotesController } from './notes/notes.controller';
-import { BoardsService } from './boards/boards.service';
-import { NotesService } from './notes/notes.service';
+import { BoardsController } from './board/board.controller';
+import { NotesController } from './note/note.controller';
+import { BoardsService } from './board/board.service';
+import { NotesService } from './note/note.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';

@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { ICreateBoard, IUpdateBoard } from './types/dto';
 import { IBoard } from './types/interfaces';
-import { BoardsService } from './boards.service';
+import { BoardsService } from './board.service';
 
 @Controller('boards')
 export class BoardsController {
