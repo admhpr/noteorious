@@ -7,12 +7,10 @@ import { BoardService } from './board/board.service';
 import { NoteService } from './note/note.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Connection } from 'typeorm';
+import { BoardModule } from './board/board.module';
 @Module({
-  imports: [TypeOrmModule.forRoot()],
-  controllers: [AppController, BoardController, NoteController],
-  providers: [AppService, BoardService, NoteService],
+  imports: [TypeOrmModule.forRoot(), BoardModule],
+  controllers: [AppController, NoteController],
+  providers: [AppService, NoteService],
 })
-export class AppModule {
-  constructor(private readonly connection: Connection) {}
-}
+export class AppModule {}
