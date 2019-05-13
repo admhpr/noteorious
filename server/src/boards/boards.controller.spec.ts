@@ -1,24 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { BoardsController } from './boards.controller';
+import { BoardsService } from './boards.service';
 
-describe('Boards Controller', () => {
+describe(' Boards Controller', () => {
   let controller: BoardsController;
+  let service: BoardsService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [BoardsController],
+      providers: [BoardsService],
     }).compile();
 
+    service = module.get<BoardsService>(BoardsService);
     controller = module.get<BoardsController>(BoardsController);
   });
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
-  });
-
-  describe('findAll', () => {
-    it('should return an array of board objects', () => {
-      expect(controller.findAll()).toBe('all items');
-    });
   });
 });
