@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { BoardController } from './board/board.controller';
+
 import { NoteController } from './note/note.controller';
-import { BoardService } from './board/board.service';
 import { NoteService } from './note/note.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
