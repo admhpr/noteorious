@@ -1,5 +1,5 @@
 export interface IBoard {
-  id?: string;
+  id?: number;
   title: string;
   description: string;
 }
