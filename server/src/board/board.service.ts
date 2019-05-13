@@ -1,31 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { IBoard } from './types/interfaces';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Board } from './board.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class BoardService {
-  private readonly boards: IBoard[] = [
-    {
-      id: '1',
-      title: 'Board One',
-      description: 'Blah Blah Blah',
-    },
-    {
-      id: '2',
-      title: 'Board Two',
-      description: 'Blah Blah Blah',
-    },
-    {
-      id: '3',
-      title: 'Board Three',
-      description: 'Blah Blah Blah',
-    },
-  ];
+  constructor(
+    @InjectRepository(Board)
+    private readonly boardRepository: Repository<Board>,
+  ) {}
 
-  findAll(): IBoard[] {
-    return this.boards;
+  findAll(): Promise<IBoard[]> {
+    return this.boardRepository.find();
   }
 
-  findOne(id: string): IBoard {
-    return this.boards.find(board => board.id === id);
+  findOne(id: string): Promise<IBoard> {
+    return this.boardRepository.findOne(id);
   }
 }
