@@ -6,8 +6,9 @@ import { NotesController } from './notes/notes.controller';
 import { BoardsService } from './boards/boards.service';
 import { NotesService } from './notes/notes.service';
 
+import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
-  imports: [],
+  imports: [TypeOrmModule.forRoot()],
   controllers: [AppController, BoardsController, NotesController],
   providers: [AppService, BoardsService, NotesService],
 })
