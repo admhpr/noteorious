@@ -24,20 +24,6 @@ describe(' Board Controller', () => {
 
   describe('findAll', () => {
     it('should return an array of boards', async () => {
-      const result: IBoard[] = [
-        {
-          id: 1,
-          title: 'Board One',
-          description: 'This is board one',
-        },
-      ];
-      jest.spyOn(service, 'findAll').mockImplementation(() => result);
-
-      expect(await controller.findAll()).toBe(result);
-    });
-  });
-  describe('findAll', () => {
-    it('should return an array of boards', async () => {
       const result = fixtures.boards;
 
       jest.spyOn(service, 'findAll').mockImplementation(() => result);
