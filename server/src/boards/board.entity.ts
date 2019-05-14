@@ -1,6 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
-@Entity({ name: 'boards' })
+@Entity()
 export class Board {
   @PrimaryGeneratedColumn()
   id: string;
@@ -13,4 +13,7 @@ export class Board {
 
   @Column()
   isActive: boolean;
+
+  @OneToMany(type => Note, photo => note.board)
+  notes: Note[];
 }

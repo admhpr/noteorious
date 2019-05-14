@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { ICreateNote, IUpdateNote } from './types/dto';
 
-@Controller('note')
+@Controller('notes')
 export class NoteController {
   @Get()
   findAll(): string {
