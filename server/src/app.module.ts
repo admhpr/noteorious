@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { NoteController } from './note/note.controller';
-import { NoteService } from './note/note.service';
+import { NoteController } from './notes/notes.controller';
+import { NoteService } from './notes/notes.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { BoardModule } from './board/board.module';
+import { BoardModule } from './boards/boards.module';
 @Module({
   imports: [TypeOrmModule.forRoot(), BoardModule],
   controllers: [AppController, NoteController],

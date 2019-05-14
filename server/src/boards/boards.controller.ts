@@ -9,9 +9,9 @@ import {
 } from '@nestjs/common';
 import { ICreateBoard, IUpdateBoard } from './types/dto';
 import { IBoard } from './types/interfaces';
-import { BoardService } from './board.service';
+import { BoardService } from './boards.service';
 
-@Controller('board')
+@Controller('boards')
 export class BoardController {
   constructor(private readonly boardService: BoardService) {}
 

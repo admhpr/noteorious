@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IBoard } from './types/interfaces';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Board } from './board.entity';
+import { Board } from './boards.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
