@@ -10,7 +10,7 @@ import {
 import { ICreateNote, IUpdateNote } from './types/dto';
 
 @Controller('notes')
-export class NoteController {
+export class NotesController {
   @Get()
   findAll(): string {
     return 'all items';

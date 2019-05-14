@@ -15,6 +15,12 @@ export class Note {
   @Column()
   isActive: boolean;
 
+  @Column({ default: Date.now() })
+  createdAt: Date;
+
+  @Column()
+  updatedAt: Date;
+
   @ManyToOne(type => Board, board => board.notes)
   board: Board;
 }

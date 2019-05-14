@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Note } from 'src/notes/note.entity';
 
 @Entity()
 export class Board {
@@ -13,6 +14,12 @@ export class Board {
 
   @Column()
   isActive: boolean;
+
+  @Column({ default: Date.now() })
+  createdAt: Date;
+
+  @Column()
+  updatedAt: Date;
 
   @OneToMany(type => Note, photo => note.board)
   notes: Note[];
