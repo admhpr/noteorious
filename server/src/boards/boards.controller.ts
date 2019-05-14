@@ -10,7 +10,13 @@ import {
 import { ICreateBoard, IUpdateBoard } from './types/dto';
 import { IBoard } from './types/interfaces';
 import { BoardsService } from './boards.service';
-import { InsertResult } from 'typeorm';
+import {
+  InsertResult,
+  DeleteResult,
+  UpdateQueryBuilder,
+  UpdateResult,
+} from 'typeorm';
+import { Board } from './board.entity';
 
 @Controller('boards')
 export class BoardsController {
@@ -27,17 +33,20 @@ export class BoardsController {
   }
 
   @Post()
-  create(@Body() createBoardsDto: ICreateBoard): Promise<InsertResult> {
+  create(@Body() createBoardsDto: ICreateBoard): Board {
     return this.boardService.create(createBoardsDto);
   }
 
   @Put(':id')
-  update(@Body() updateBoardsDto: IUpdateBoard, @Param('id') id): string {
-    return `${JSON.stringify(updateBoardsDto)}`;
+  update(
+    @Body() updateBoardsDto: IUpdateBoard,
+    @Param('id') id,
+  ): Promise<UpdateResult> {
+    return this.boardService.update(id, updateBoardsDto);
   }
 
   @Delete(':id')
-  delete(@Param('id') id): string {
-    return `delete ${id}`;
+  delete(@Param('id') id): Promise<DeleteResult> {
+    return this.boardService.delete(id);
   }
 }
