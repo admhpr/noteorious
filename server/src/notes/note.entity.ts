@@ -6,7 +6,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Board } from 'src/boards/board.entity';
+import { Board } from '../boards/board.entity';
 
 @Entity()
 export class Note {

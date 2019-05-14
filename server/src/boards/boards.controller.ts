@@ -11,37 +11,36 @@ import { ICreateBoard, IUpdateBoard } from './types/dto';
 import { IBoard } from './types/interfaces';
 import { BoardsService } from './boards.service';
 import { UpdateResult } from 'typeorm';
-import { Board } from './board.entity';
 
 @Controller('boards')
 export class BoardsController {
-  constructor(private readonly boardService: BoardsService) {}
+  constructor(private readonly service: BoardsService) {}
 
   @Get()
   findAll(): Promise<IBoard[]> {
-    return this.boardService.findAll();
+    return this.service.findAll();
   }
 
   @Get(':id')
   findOne(@Param('') param): Promise<IBoard> {
-    return this.boardService.findOne(param.id);
+    return this.service.findOne(param.id);
   }
 
   @Post()
-  create(@Body() createBoardsDto: ICreateBoard): Board {
-    return this.boardService.create(createBoardsDto);
+  create(@Body() createDto: ICreateBoard): IBoard {
+    return this.service.create(createDto);
   }
 
   @Put(':id')
   update(
-    @Body() updateBoardsDto: IUpdateBoard,
+    @Body() updateDto: IUpdateBoard,
     @Param('id') id,
   ): Promise<UpdateResult> {
-    return this.boardService.update(id, updateBoardsDto);
+    return this.service.update(id, updateDto);
   }
 
   @Delete(':id')
   delete(@Param('id') id): Promise<UpdateResult> {
-    return this.boardService.update(id, { isActive: 0 });
+    return this.service.update(id, { isActive: 0 });
   }
 }
