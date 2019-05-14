@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { Note } from 'src/notes/note.entity';
 
 @Entity()
@@ -15,12 +22,12 @@ export class Board {
   @Column()
   isActive: boolean;
 
-  @Column({ default: Date.now() })
+  @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
 
-  @Column()
+  @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
 
-  @OneToMany(type => Note, photo => note.board)
+  @OneToMany(type => Note, note => note.board)
   notes: Note[];
 }
