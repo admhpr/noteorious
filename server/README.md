@@ -34,7 +34,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+<h5 align="center">Proudly built with:</h5>
 <p align="center">
-  <h5>Proudly built with:</h5>
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="120" alt="Nest Logo" /></a>
 </p>
