@@ -47,6 +47,6 @@ export class BoardsController {
 
   @Delete(':id')
   delete(@Param('id') id): Promise<DeleteResult> {
-    return this.boardService.delete(id);
+    return this.boardService.update(id, { isActive: 0 });
   }
 }

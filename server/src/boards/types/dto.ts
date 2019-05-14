@@ -4,5 +4,5 @@ export type ICreateBoard = {
 };
 
 export type IUpdateBoard = {
-  readonly board_id: number;
+  isActive?: number;
 } & Partial<ICreateBoard>;
