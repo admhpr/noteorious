@@ -1,8 +1,8 @@
-export type ICreateBoard = {
+export type ICreateBoards = {
   title: string;
   description: string;
 };
 
-export type IUpdateBoard = {
+export type IUpdateBoards = {
   readonly board_id: number;
-} & Partial<ICreateBoard>;
+} & Partial<ICreateBoards>;
