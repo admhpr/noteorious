@@ -10,12 +10,7 @@ import {
 import { ICreateBoard, IUpdateBoard } from './types/dto';
 import { IBoard } from './types/interfaces';
 import { BoardsService } from './boards.service';
-import {
-  InsertResult,
-  DeleteResult,
-  UpdateQueryBuilder,
-  UpdateResult,
-} from 'typeorm';
+import { UpdateResult } from 'typeorm';
 import { Board } from './board.entity';
 
 @Controller('boards')
@@ -46,7 +41,7 @@ export class BoardsController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id): Promise<DeleteResult> {
+  delete(@Param('id') id): Promise<UpdateResult> {
     return this.boardService.update(id, { isActive: 0 });
   }
 }
