@@ -19,7 +19,7 @@ export class Board {
   @Column('text')
   description: string;
 
-  @Column()
+  @Column({ default: 1 })
   isActive: boolean;
 
   @CreateDateColumn({ type: 'timestamp' })

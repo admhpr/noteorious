@@ -3,6 +3,7 @@ import { IBoard } from './types/interfaces';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Board } from './board.entity';
 import { Repository } from 'typeorm';
+import { ICreateBoard } from './types/dto';
 
 @Injectable()
 export class BoardsService {
@@ -17,5 +18,9 @@ export class BoardsService {
 
   findOne(id: string): Promise<IBoard> {
     return this.boardRepo.findOne(id);
+  }
+
+  create(dto: ICreateBoard) {
+    return this.boardRepo.insert(dto);
   }
 }

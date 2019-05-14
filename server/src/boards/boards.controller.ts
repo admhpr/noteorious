@@ -7,9 +7,10 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ICreateBoards, IUpdateBoards } from './types/dto';
+import { ICreateBoard, IUpdateBoard } from './types/dto';
 import { IBoard } from './types/interfaces';
 import { BoardsService } from './boards.service';
+import { InsertResult } from 'typeorm';
 
 @Controller('boards')
 export class BoardsController {
@@ -26,12 +27,12 @@ export class BoardsController {
   }
 
   @Post()
-  create(@Body() createBoardsDto: ICreateBoards): string {
-    return `${JSON.stringify(createBoardsDto)}`;
+  create(@Body() createBoardsDto: ICreateBoard): Promise<InsertResult> {
+    return this.boardService.create(createBoardsDto);
   }
 
   @Put(':id')
-  update(@Body() updateBoardsDto: IUpdateBoards, @Param('id') id): string {
+  update(@Body() updateBoardsDto: IUpdateBoard, @Param('id') id): string {
     return `${JSON.stringify(updateBoardsDto)}`;
   }
 
