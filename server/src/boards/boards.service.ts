@@ -24,11 +24,12 @@ export class BoardsService {
     return this.boardRepo.create(dto);
   }
 
-  update(id: string, dto: IUpdateBoard) {
-    return this.boardRepo.update(id, dto);
+  async update(id: string, dto: IUpdateBoard) {
+    const toUpdate = await this.findOne(id);
+    return this.boardRepo.save({ ...toUpdate, ...dto });
   }
 
   delete(id: string) {
-    return this.boardRepo.delete(id);
+    return this.update(id, { isActive: 0 });
   }
 }

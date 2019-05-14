@@ -10,7 +10,6 @@ import {
 import { ICreateBoard, IUpdateBoard } from './types/dto';
 import { IBoard } from './types/interfaces';
 import { BoardsService } from './boards.service';
-import { UpdateResult } from 'typeorm';
 
 @Controller('boards')
 export class BoardsController {
@@ -32,15 +31,12 @@ export class BoardsController {
   }
 
   @Put(':id')
-  update(
-    @Body() updateDto: IUpdateBoard,
-    @Param('id') id,
-  ): Promise<UpdateResult> {
+  update(@Body() updateDto: IUpdateBoard, @Param('id') id): Promise<IBoard> {
     return this.service.update(id, updateDto);
   }
 
   @Delete(':id')
-  delete(@Param('id') id): Promise<UpdateResult> {
-    return this.service.update(id, { isActive: 0 });
+  delete(@Param('id') id): Promise<IBoard> {
+    return this.service.delete(id);
   }
 }
