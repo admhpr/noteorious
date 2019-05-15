@@ -52,4 +52,14 @@ describe(' Boards Controller', () => {
       expect(await controller.findOne(1)).toBe(result);
     });
   });
+
+  describe('create', () => {
+    it('should return a single board', async () => {
+      const result = fixtures.board;
+
+      jest.spyOn(service, 'create').mockImplementation(() => result);
+
+      expect(await controller.create(fixtures.board)).toBe(result);
+    });
+  });
 });
