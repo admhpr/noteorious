@@ -4,6 +4,5 @@ export type ICreateNote = {
 };
 
 export type IUpdateNote = {
-  readonly note_id: number;
-  readonly board_id: number;
+  isActive?: number;
 } & Partial<ICreateNote>;

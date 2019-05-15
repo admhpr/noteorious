@@ -19,8 +19,8 @@ export class Note {
   @Column('text')
   description: string;
 
-  @Column({ default: 1 })
-  isActive: boolean;
+  @Column({ type: 'boolean', default: 1 })
+  isActive: number;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
