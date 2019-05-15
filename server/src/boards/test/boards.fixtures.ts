@@ -12,8 +12,19 @@ const boards = [board];
 const mockRepository = {
   data: boards,
 };
+
+// @ts-ignore
+const repositoryMockFactory: () => MockType<Repository<any>> = jest.fn(() => ({
+  find: jest.fn(entity => entity),
+  findOne: jest.fn(entity => entity),
+  create: jest.fn(entity => entity),
+  update: jest.fn(entity => entity),
+  delete: jest.fn(entity => entity),
+}));
+
 export const fixtures = Object.freeze({
   board,
   boards,
   mockRepository,
+  repositoryMockFactory,
 });
