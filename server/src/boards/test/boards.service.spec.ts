@@ -37,7 +37,7 @@ describe('BoardsService', () => {
     });
   });
   describe('findOne', () => {
-    it('should return an array of board entities', () => {
+    it('should return a single board entity', () => {
       const board = fixtures.board;
       repositoryMock.findOne.mockReturnValue(board);
       expect(service.findOne(board.id)).toEqual(board);
@@ -46,6 +46,18 @@ describe('BoardsService', () => {
       const board = fixtures.board;
       service.findOne(board.id);
       expect(repositoryMock.findOne).toHaveBeenCalledWith(board.id);
+    });
+  });
+  describe('create', () => {
+    it('should return the created board entity', () => {
+      const board = fixtures.board;
+      repositoryMock.create.mockReturnValue(board);
+      expect(service.create(board)).toEqual(board);
+    });
+    it('should have been called with the correct dto', () => {
+      const dto = fixtures.board;
+      service.create(dto);
+      expect(repositoryMock.create).toHaveBeenCalledWith(dto);
     });
   });
 });
