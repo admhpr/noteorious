@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { BoardsController } from '../boards.controller';
 import { BoardsService } from '../boards.service';
-import { fixtures } from './fixtures';
+import { fixtures } from './boards.fixtures';
 import { Board } from '../board.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
