@@ -60,4 +60,21 @@ describe('BoardsService', () => {
       expect(repositoryMock.create).toHaveBeenCalledWith(dto);
     });
   });
+  describe('update', () => {
+    const board = fixtures.board;
+    const params = { id: '1' };
+
+    it('should return the updated board entity', async () => {
+      repositoryMock.save.mockReturnValue(board);
+      expect(await service.update(params.id, board)).toEqual(board);
+    });
+    it('should have been called with new values', async () => {
+      service.update(params.id, board);
+      expect(repositoryMock.findOne).toHaveBeenCalled();
+      expect(await repositoryMock.save).toHaveBeenCalledWith({
+        ...{ '0': '1' },
+        ...board,
+      });
+    });
+  });
 });
