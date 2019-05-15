@@ -30,10 +30,22 @@ describe('BoardsService', () => {
   });
 
   describe('findAll', () => {
-    it('should return an array of board entities', async () => {
+    it('should return an array of board entities', () => {
       const boards = fixtures.boards;
       repositoryMock.find.mockReturnValue(boards);
       expect(service.findAll()).toEqual(boards);
+    });
+  });
+  describe('findOne', () => {
+    it('should return an array of board entities', () => {
+      const board = fixtures.board;
+      repositoryMock.findOne.mockReturnValue(board);
+      expect(service.findOne(board.id)).toEqual(board);
+    });
+    it('should have been called with the correct params', () => {
+      const board = fixtures.board;
+      service.findOne(board.id);
+      expect(repositoryMock.findOne).toHaveBeenCalledWith(board.id);
     });
   });
 });
