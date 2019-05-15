@@ -77,4 +77,21 @@ describe('BoardsService', () => {
       });
     });
   });
+  describe('delete', () => {
+    const board = fixtures.board;
+    const params = { id: '1' };
+
+    it('should return the deleted board entity', async () => {
+      repositoryMock.save.mockReturnValue(board);
+      expect(await service.delete(params.id)).toEqual(board);
+    });
+    it('should have been called with id and isActive 0', async () => {
+      service.delete(params.id);
+      expect(repositoryMock.findOne).toHaveBeenCalled();
+      expect(await repositoryMock.save).toHaveBeenCalledWith({
+        ...{ '0': '1' },
+        ...{ isActive: 0 },
+      });
+    });
+  });
 });
