@@ -24,7 +24,7 @@ export class BoardsService {
     return this.boardRepo.create(dto);
   }
 
-  async update(id: string, dto: IUpdateBoard) {
+  async update(id: string, dto: IUpdateBoard): Promise<IBoard> {
     const toUpdate = await this.findOne(id);
     return this.boardRepo.save({ ...toUpdate, ...dto });
   }

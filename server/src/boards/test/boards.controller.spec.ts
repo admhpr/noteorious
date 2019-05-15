@@ -54,12 +54,34 @@ describe(' Boards Controller', () => {
   });
 
   describe('create', () => {
-    it('should return a single board', async () => {
+    it('should return a created board', async () => {
       const result = fixtures.board;
 
       jest.spyOn(service, 'create').mockImplementation(() => result);
 
       expect(await controller.create(fixtures.board)).toBe(result);
+    });
+  });
+  describe('update', () => {
+    it('should return a updated board', async () => {
+      const result = fixtures.board;
+
+      jest
+        .spyOn(service, 'update')
+        .mockImplementation(() => new Promise(resolve => resolve(result)));
+
+      expect(await controller.update(1, fixtures.board)).toBe(result);
+    });
+  });
+  describe('delete', () => {
+    it('should return the deleted board', async () => {
+      const result = fixtures.board;
+
+      jest
+        .spyOn(service, 'delete')
+        .mockImplementation(() => new Promise(resolve => resolve(result)));
+
+      expect(await controller.delete(1)).toBe(result);
     });
   });
 });

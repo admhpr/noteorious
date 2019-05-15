@@ -31,7 +31,7 @@ export class BoardsController {
   }
 
   @Put(':id')
-  update(@Body() updateDto: IUpdateBoard, @Param('id') id): Promise<IBoard> {
+  update(@Param('id') id, @Body() updateDto: IUpdateBoard): Promise<IBoard> {
     return this.service.update(id, updateDto);
   }
 
