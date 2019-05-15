@@ -1,1 +1,4 @@
-export { Board as IBoard } from '../board.entity';
+import { Board } from '../board.entity';
+import { Omit } from 'src/common/types/essentials';
+
+export interface IBoard extends Omit<Board, 'notes'> {}

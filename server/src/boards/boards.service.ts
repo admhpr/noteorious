@@ -20,7 +20,7 @@ export class BoardsService {
     return this.boardRepo.findOne(id);
   }
 
-  create(dto: ICreateBoard) {
+  create(dto: ICreateBoard): IBoard {
     return this.boardRepo.create(dto);
   }
 
