@@ -10,8 +10,6 @@ import {
 import { ICreateBoard, IUpdateBoard } from './types/dto';
 import { IBoard } from './types/interfaces';
 import { BoardsService } from './boards.service';
-import { resolve } from 'url';
-import { fixtures } from './test/boards.fixtures';
 
 @Controller('boards')
 export class BoardsController {
@@ -28,9 +26,9 @@ export class BoardsController {
   }
 
   @Post('search')
-  search(@Body() searchFilters: any): Promise<IBoard[]> {
-    //TODO: point to service
-    return new Promise(resolve => resolve(fixtures.boards));
+  search(@Body() searchFilters: any = {}): Promise<IBoard[]> {
+    //TODO: add filters
+    return this.service.findAll(searchFilters);
   }
 
   @Post()

@@ -12,8 +12,8 @@ export class BoardsService {
     private readonly boardRepo: Repository<Board>,
   ) {}
 
-  findAll(): Promise<IBoard[]> {
-    return this.boardRepo.find();
+  findAll(filters): Promise<IBoard[]> {
+    return this.boardRepo.find(filters);
   }
 
   findOne(id: string): Promise<IBoard> {
