@@ -13,7 +13,8 @@ export class NotesService {
   ) {}
 
   findAll(): Promise<INote[]> {
-    return this.noteRepo.find({ relations: ['board'], where: { boardId: 1 } });
+    //TODO: make dynamic
+    return this.noteRepo.find({ where: { boardId: 1 } });
   }
 
   findOne(id: string): Promise<INote> {
