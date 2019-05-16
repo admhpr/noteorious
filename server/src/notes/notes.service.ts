@@ -13,7 +13,14 @@ export class NotesService {
   ) {}
 
   findAll(): Promise<INote[]> {
-    return this.noteRepo.find();
+    return this.noteRepo.find({
+      join: {
+        alias: 'note',
+        leftJoinAndSelect: {
+          boards: 'note.boardId',
+        },
+      },
+    });
   }
 
   findOne(id: string): Promise<INote> {
