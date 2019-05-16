@@ -13,22 +13,17 @@ export class NotesService {
   ) {}
 
   findAll(): Promise<INote[]> {
-    return this.noteRepo.find({
-      join: {
-        alias: 'note',
-        leftJoinAndSelect: {
-          boards: 'note.boardId',
-        },
-      },
-    });
+    return this.noteRepo.find({ relations: ['board'], where: { boardId: 1 } });
   }
 
   findOne(id: string): Promise<INote> {
     return this.noteRepo.findOne(id);
   }
 
-  create(dto: ICreateNote): INote {
-    return this.noteRepo.create(dto);
+  async create(dto: ICreateNote): Promise<INote> {
+    const { boardId } = dto;
+    const note = await this.noteRepo.create(dto);
+    return this.noteRepo.save({ ...note, boardId });
   }
 
   async update(id: string, dto: IUpdateNote): Promise<INote> {

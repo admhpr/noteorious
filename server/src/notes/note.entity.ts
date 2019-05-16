@@ -5,6 +5,7 @@ import {
   ManyToOne,
   CreateDateColumn,
   UpdateDateColumn,
+  JoinColumn,
 } from 'typeorm';
 import { Board } from '../boards/board.entity';
 
@@ -28,6 +29,7 @@ export class Note {
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
 
-  @ManyToOne(type => Board, board => board.notes)
-  board: Board;
+  @Column({ nullable: true })
+  @JoinColumn()
+  boardId: number;
 }
