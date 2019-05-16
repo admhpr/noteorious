@@ -49,10 +49,10 @@ describe('NotesService', () => {
     });
   });
   describe('create', () => {
-    it('should return the created note entity', () => {
+    it('should return the created note entity', async () => {
       const note = fixtures.note;
       repositoryMock.create.mockReturnValue(note);
-      expect(service.create(note)).toEqual(note);
+      expect(await service.create(note)).toEqual(note);
     });
     it('should have been called with the correct dto', () => {
       const dto = fixtures.note;
