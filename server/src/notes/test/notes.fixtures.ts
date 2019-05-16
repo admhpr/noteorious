@@ -1,4 +1,4 @@
-import { repositoryMockFactory } from '../../common/fiixtures';
+import { repositoryMockFactory } from '../../common/fixtures';
 import { INote } from '../types/interfaces';
 
 const note = {
