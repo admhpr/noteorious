@@ -30,7 +30,7 @@ export class NotesController {
   }
 
   @Put(':id')
-  update(@Body() updateDto: IUpdateNote, @Param('id') id): Promise<INote> {
+  update(@Param('id') id, @Body() updateDto: IUpdateNote): Promise<INote> {
     return this.service.update(id, updateDto);
   }
 

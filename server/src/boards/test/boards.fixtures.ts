@@ -1,3 +1,5 @@
+import { repositoryMockFactory } from '../../common/fiixtures';
+
 const board = {
   id: '1',
   title: 'Board One',
@@ -12,15 +14,6 @@ const boards = [board];
 const mockRepository = {
   data: boards,
 };
-
-// @ts-ignore
-const repositoryMockFactory: () => MockType<Repository<any>> = jest.fn(() => ({
-  find: jest.fn(entity => entity),
-  findOne: jest.fn(entity => entity),
-  create: jest.fn(entity => entity),
-  save: jest.fn(entity => entity),
-  delete: jest.fn(entity => entity),
-}));
 
 export const fixtures = Object.freeze({
   board,

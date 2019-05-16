@@ -1,3 +1,6 @@
+import { repositoryMockFactory } from '../../common/fiixtures';
+import { INote } from '../types/interfaces';
+
 const note = {
   id: '1',
   title: 'Note One',
@@ -16,4 +19,5 @@ export const fixtures = Object.freeze({
   note,
   notes,
   mockRepository,
+  repositoryMockFactory,
 });

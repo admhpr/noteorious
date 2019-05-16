@@ -20,16 +20,16 @@ export class NotesService {
     return this.noteRepo.findOne(id);
   }
 
-  create(dto: ICreateNote) {
+  create(dto: ICreateNote): INote {
     return this.noteRepo.create(dto);
   }
 
-  async update(id: string, dto: IUpdateNote) {
+  async update(id: string, dto: IUpdateNote): Promise<INote> {
     const toUpdate = await this.findOne(id);
     return this.noteRepo.save({ ...toUpdate, ...dto });
   }
 
-  delete(id: string) {
+  delete(id: string): Promise<INote> {
     return this.update(id, { isActive: 0 });
   }
 }
