@@ -26,8 +26,7 @@ export class BoardsController {
   }
 
   @Post('search')
-  search(@Body() searchFilters: any = {}): Promise<IBoard[]> {
-    //TODO: add filters
+  search(@Body() searchFilters: Partial<IBoard> = {}): Promise<IBoard[]> {
     return this.service.findAll(searchFilters);
   }
 
