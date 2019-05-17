@@ -46,12 +46,13 @@ A board can have many notes and a note can only have one board.
 
 /notes
 
-| Verb   |  Endpoint  |                                         Body | Result            |
-| ------ | :--------: | -------------------------------------------: | ----------------- |
-| GET    |   /notes   |                                              | returns all notes |
-| POST   |   /notes   |                  {title: "" description: ""} | creates a note    |
-| PUT    | /notes/:id | { note_id: "1", title?: "" description?: ""} | updates a note    |
-| DELETE | /notes/:id |                              { note_id: "1"} | deletes a note    |
+| Verb   |  Endpoint  |                                         Body | Result                        |
+| ------ | :--------: | -------------------------------------------: | ----------------------------- |
+| GET    |   /notes   |                                              | returns all notes             |
+| POST   |  /search   |                                              | returns notes based on search |
+| POST   |   /notes   |                  {title: "" description: ""} | creates a note                |
+| PUT    | /notes/:id | { note_id: "1", title?: "" description?: ""} | updates a note                |
+| DELETE | /notes/:id |                              { note_id: "1"} | deletes a note                |
 
 ## Dependencies
 
