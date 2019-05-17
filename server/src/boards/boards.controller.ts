@@ -31,7 +31,7 @@ export class BoardsController {
   }
 
   @Post()
-  create(@Body() createDto: ICreateBoard): IBoard {
+  create(@Body() createDto: ICreateBoard): Promise<IBoard> {
     return this.service.create(createDto);
   }
 

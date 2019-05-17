@@ -1,7 +1,7 @@
 export type ICreateNote = {
   title: string;
   description: string;
-  boardId: number;
+  boardId: string;
 };
 
 export type IUpdateNote = {

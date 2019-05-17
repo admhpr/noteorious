@@ -13,15 +13,15 @@ export class BoardsService {
   ) {}
 
   findAll(filters = {}): Promise<IBoard[]> {
-    return this.boardRepo.find(filters);
+    return this.boardRepo.find({ ...filters, relations: ['notes'] });
   }
 
   findOne(id: string): Promise<IBoard> {
     return this.boardRepo.findOne(id);
   }
 
-  create(dto: ICreateBoard): IBoard {
-    return this.boardRepo.create(dto);
+  create(dto: ICreateBoard): Promise<IBoard> {
+    return this.boardRepo.save(dto);
   }
 
   async update(id: string, dto: IUpdateBoard): Promise<IBoard> {

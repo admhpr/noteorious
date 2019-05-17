@@ -4,6 +4,7 @@ import { Note } from './note.entity';
 import { Repository } from 'typeorm';
 import { INote } from './types/interfaces';
 import { ICreateNote, IUpdateNote } from './types/dto';
+import { Board } from 'src/boards/board.entity';
 
 @Injectable()
 export class NotesService {
@@ -13,7 +14,7 @@ export class NotesService {
   ) {}
 
   findAll(filters = {}): Promise<INote[]> {
-    return this.noteRepo.find(filters);
+    return this.noteRepo.find({ ...filters, relations: ['board'] });
   }
 
   findOne(id: string): Promise<INote> {
@@ -21,9 +22,11 @@ export class NotesService {
   }
 
   async create(dto: ICreateNote): Promise<INote> {
-    const { boardId } = dto;
-    const note = await this.noteRepo.create(dto);
-    return this.noteRepo.save({ ...note, boardId });
+    const note = new Note();
+    const relation = new Board();
+    relation.id = dto.boardId;
+    note.board = relation;
+    return this.noteRepo.save({ ...note, ...dto });
   }
 
   async update(id: string, dto: IUpdateNote): Promise<INote> {

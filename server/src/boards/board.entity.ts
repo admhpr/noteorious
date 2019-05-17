@@ -28,6 +28,6 @@ export class Board {
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
 
-  @OneToMany(type => Note, note => note.boardId)
+  @OneToMany(type => Note, note => note.board)
   notes: Note[];
 }
