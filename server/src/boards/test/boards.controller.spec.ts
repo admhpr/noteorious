@@ -57,7 +57,9 @@ describe(' Boards Controller', () => {
     it('should return a created board', async () => {
       const result = fixtures.board;
 
-      jest.spyOn(service, 'create').mockImplementation(() => result);
+      jest
+        .spyOn(service, 'create')
+        .mockImplementation(() => new Promise(resolve => resolve(result)));
 
       expect(await controller.create(fixtures.board)).toBe(result);
     });
