@@ -1,5 +1,4 @@
 import { repositoryMockFactory } from '../../common/fixtures';
-import { INote } from '../types/interfaces';
 
 const note = {
   id: '1',
@@ -8,7 +7,8 @@ const note = {
   isActive: 1,
   createdAt: new Date('2019-05-15T02:41:39.111Z'),
   updatedAt: new Date('2019-05-15T02:41:39.111Z'),
-  boardId: 1,
+  board: { id: '1' },
+  boardId: '1',
 };
 
 const notes = [note];

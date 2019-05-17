@@ -57,7 +57,7 @@ describe('NotesService', () => {
     it('should have been called with the correct dto', () => {
       const dto = fixtures.note;
       service.create(dto);
-      expect(repositoryMock.create).toHaveBeenCalledWith(dto);
+      expect(repositoryMock.save).toHaveBeenCalledWith(dto);
     });
   });
   describe('update', () => {

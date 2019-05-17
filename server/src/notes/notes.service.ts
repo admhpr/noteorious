@@ -4,7 +4,7 @@ import { Note } from './note.entity';
 import { Repository } from 'typeorm';
 import { INote } from './types/interfaces';
 import { ICreateNote, IUpdateNote } from './types/dto';
-import { Board } from 'src/boards/board.entity';
+import { Board } from '../boards/board.entity';
 
 @Injectable()
 export class NotesService {
