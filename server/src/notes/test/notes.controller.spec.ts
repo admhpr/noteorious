@@ -57,7 +57,9 @@ describe('Notes Controller', () => {
     it('should return a created note', async () => {
       const result = fixtures.note;
 
-      jest.spyOn(service, 'create').mockImplementation(() => result);
+      jest
+        .spyOn(service, 'create')
+        .mockImplementation(() => new Promise(resolve => resolve(result)));
 
       expect(await controller.create(fixtures.note)).toBe(result);
     });
