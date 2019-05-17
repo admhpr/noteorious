@@ -36,12 +36,13 @@ A board can have many notes and a note can only have one board.
 
 /boards
 
-| Verb   |  Endpoint   |                                          Body | Result             |
-| ------ | :---------: | --------------------------------------------: | ------------------ |
-| GET    |   /boards   |                                               | returns all boards |
-| POST   |   /boards   |                   {title: "" description: ""} | creates a board    |
-| PUT    | /boards/:id | { board_id: "1", title?: "" description?: ""} | updates a board    |
-| DELETE | /boards/:id |                              { board_id: "1"} | deletes a board    |
+| Verb   |  Endpoint   |                                          Body | Result                         |
+| ------ | :---------: | --------------------------------------------: | ------------------------------ |
+| GET    |   /boards   |                                               | returns all boards             |
+| POST   |   /search   |                                               | returns boards based on search |
+| POST   |   /boards   |                   {title: "" description: ""} | creates a board                |
+| PUT    | /boards/:id | { board_id: "1", title?: "" description?: ""} | updates a board                |
+| DELETE | /boards/:id |                              { board_id: "1"} | deletes a board                |
 
 /notes
 
