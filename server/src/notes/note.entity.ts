@@ -29,7 +29,6 @@ export class Note {
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
 
-  @Column({ nullable: true })
-  @JoinColumn()
-  boardId: number;
+  @ManyToOne(type => Board, board => board.notes)
+  board: Board;
 }
