@@ -12,9 +12,8 @@ export class NotesService {
     private readonly noteRepo: Repository<Note>,
   ) {}
 
-  findAll(): Promise<INote[]> {
-    //TODO: make dynamic
-    return this.noteRepo.find({ where: { boardId: 1 } });
+  findAll(filters = {}): Promise<INote[]> {
+    return this.noteRepo.find(filters);
   }
 
   findOne(id: string): Promise<INote> {

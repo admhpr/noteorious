@@ -12,7 +12,7 @@ export class BoardsService {
     private readonly boardRepo: Repository<Board>,
   ) {}
 
-  findAll(filters): Promise<IBoard[]> {
+  findAll(filters = {}): Promise<IBoard[]> {
     return this.boardRepo.find(filters);
   }
 

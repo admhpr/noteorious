@@ -24,8 +24,13 @@ export class NotesController {
     return this.service.findOne(param.id);
   }
 
+  @Post('search')
+  search(@Body() searchFilters: Partial<INote> = {}): Promise<INote[]> {
+    return this.service.findAll(searchFilters);
+  }
+
   @Post()
-  create(@Body() createDto: ICreateNote): INote {
+  create(@Body() createDto: ICreateNote): Promise<INote> {
     return this.service.create(createDto);
   }
 
