@@ -53,6 +53,10 @@ describe(' Boards Controller', () => {
     });
   });
 
+  describe('search', () => {
+    it('should return an array of boards based on search filters', async () => {});
+  });
+
   describe('create', () => {
     it('should return a created board', async () => {
       const result = fixtures.board;

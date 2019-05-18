@@ -53,6 +53,10 @@ describe('Notes Controller', () => {
     });
   });
 
+  describe('search', () => {
+    it('should return an array of notes based on search filters', async () => {});
+  });
+
   describe('create', () => {
     it('should return a created note', async () => {
       const result = fixtures.note;
