@@ -1,1 +1,1 @@
-angular.module('noterious.common', []);
+angular.module('common', []);

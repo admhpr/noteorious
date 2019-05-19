@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('noterious.common')
-    .service('BoardsModel', function ($http, ENDPOINT_URI) {
+angular.module('common')
+    .service('BoardsModel', function ($http) {
         var service = this;
     });
