@@ -1,1 +1,1 @@
-angular.module('common', []);
+angular.module('common', []).constant('ENDPOINT_URI', 'http://localhost:3000/api')

@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('common')
-    .service('BoardsModel', function ($http) {
+    .service('BoardsModel', function ($http, ENDPOINT_URI) {
         var service = this;
 
         function extract(result) {
             return result.data;
         }
+
+        function getUrl() {
+            return ENDPOINT_URI + '/boards';
+        }
         service.all = function () {
-            console.log('BOARDS::all')
+            return $http.get(getUrl()).then(extract);
         };
 
     });
