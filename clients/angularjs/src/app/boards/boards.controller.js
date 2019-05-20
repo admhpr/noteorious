@@ -3,5 +3,5 @@
 angular.module('noteorious', ['common'])
     .controller("BoardsCtrl", function ($scope, BoardsModel) {
         var ctrl = $scope;
-        ctrl.boards = BoardsModel.all()
+        BoardsModel.all().then(data => ctrl.boards = data)
     });
