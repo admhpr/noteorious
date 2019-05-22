@@ -1,13 +1,12 @@
-const webpack = require('webpack');
-
 module.exports = {
-    context: __dirname + '/app',
+    mode: "development",
+    context: __dirname + "/src",
     entry: {
-        app: './src/app.js'
+        app: "./app.js"
     },
     output: {
-        path: __dirname + '/js',
-        filename: 'app.bundle.js'
+        path: __dirname + "/dist",
+        filename: "app.bundle.js"
     },
     module: {
         rules: [{

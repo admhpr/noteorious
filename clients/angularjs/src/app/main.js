@@ -1,3 +1,3 @@
-'use strict';
+const app = angular.module('noteorious', ['common']);
 
-angular.module('noteorious', ['common'])
+export default app
