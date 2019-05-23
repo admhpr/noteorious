@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('common')
-    .service('BoardsModel', function ($http, ENDPOINT_URI) {
+angular.module('app.core')
+    .service('NotesModel', function ($http, ENDPOINT_URI) {
         var service = this;
 
         function extract(result) {
@@ -9,7 +9,7 @@ angular.module('common')
         }
 
         function getUrl() {
-            return ENDPOINT_URI + '/boards';
+            return ENDPOINT_URI + '/notes';
         }
         service.all = function () {
             return $http.get(getUrl()).then(extract);
