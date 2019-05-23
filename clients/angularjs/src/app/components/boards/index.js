@@ -1,8 +1,11 @@
+const angular = require('angular');
 import BoardsComponent from './boards.component';
+import BoardsModel from '../../core/models/boards.model';
 
-const BoardsModule = angular.module('app.boards', []);
+const boards = angular.module('app.boards', []);
 
 // loading components, services, directives, specific to this module.
-BoardsModule.component('boards', BoardsComponent);
+boards.service('BoardsModel', BoardsModel)
+boards.component('boardsComponent', BoardsComponent);
 
-export default BoardsModule;
+export default boards;

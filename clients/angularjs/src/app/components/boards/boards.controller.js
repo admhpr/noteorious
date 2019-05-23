@@ -1,7 +1,6 @@
-export default function BoardsCtrl($scope, $log, BoardsModel) {
+export default function BoardsCtrl($scope, BoardsModel) {
     var ctrl = $scope;
-    $onInit = function () {
-        $log.info('Activate Boards Controller')
-    }
+
+    console.log(BoardsModel)
     BoardsModel.all().then(data => ctrl.boards = data)
 }

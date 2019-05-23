@@ -1,8 +1,7 @@
+const angular = require('angular');
 import components from './components';
 import core from './core'
 
-console.log(core);
-console.log(components);
-const app = angular.module('app', ['app.core', 'app.components']);
+const app = angular.module('app', [core.name, components.name]);
 
 export default app

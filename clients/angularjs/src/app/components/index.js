@@ -1,5 +1,6 @@
 import boards from './boards';
 
-export default {
-    boards
-}
+var components = angular.module('app.components', [boards.name])
+
+
+export default components
