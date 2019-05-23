@@ -1,4 +1,4 @@
 var angular = require('angular');
 import app from './app'
 
-var module = angular.module('app', [app.name])
+var app = angular.module('app', [app.name])
