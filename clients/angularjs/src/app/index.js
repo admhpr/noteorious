@@ -1,4 +1,5 @@
 const angular = require('angular');
+
 import components from './components';
 import core from './core'
 
