@@ -1,4 +1,4 @@
-import routes from './config';
+import routes from '../../config/routes';
 
 export default function routerSetup($stateProvider, $urlRouterProvider, $locationProvider) {
     'ngInject';
