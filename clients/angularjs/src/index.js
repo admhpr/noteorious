@@ -1,5 +1,7 @@
-var angular = require('angular');
-import app from './app'
+const angular = require('angular');
 
-// root module
-angular.module('app', [app.name])
+import components from './app/components';
+import core from './app/core'
+
+
+export default angular.module('app', [core.name, components.name]);
