@@ -1,5 +1,7 @@
 .main {
-    display: grid;
+    background-color: blueviolet
 }
 
-.sidebar {}
+.sidebar {
+    background-color: blue
+}
