@@ -1,7 +1,18 @@
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "main main sidebar"
+        "footer footer footer";
+}
+
 .main {
-    background-color: blueviolet
+    background-color: blueviolet;
+    grid-area: main;
 }
 
 .sidebar {
-    background-color: blue
+    background-color: blue;
+    grid-area: sidebar;
 }

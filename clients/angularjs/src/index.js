@@ -1,5 +1,5 @@
 const angular = require('angular');
-// import '../../assets/style.css';
+import '../../assets/style.css';
 import components from './app/components';
 import core from './app/core'
 
