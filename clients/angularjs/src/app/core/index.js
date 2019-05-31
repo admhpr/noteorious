@@ -6,7 +6,7 @@ import {
 } from './config/const';
 
 
-export default angular.module('app.core', [])
+export default angular.module('app.core', ['ui.router'])
     .constant(routerSetup)
     .constant('ENDPOINT_URI', ENDPOINT_URI)
     .service('BoardsModel', BoardsModel)
