@@ -6,5 +6,22 @@
                 <p>{{board.description}}</p>
             </li>
         </ul>
+        <form name="" class="create-form" role="form" ng-submit="" novalidate>
+            <fieldset>
+                <div>
+                    <input type="text" class="medium" ng-model="" placeholder="Board Title" required>
+                </div>
+                <div>
+                    <input type="text" ng-model="" placeholder="Board description" required>
+                </div>
+                <div class="bottom x-small">
+                    <input type="checkbox" ng-model="">
+                    Board is Public
+                </div>
+                <button type="submit" class="bottom-right-corner btn btn-default">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </fieldset>
+        </form>
     </div>
 </section>
