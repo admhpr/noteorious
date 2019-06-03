@@ -4,7 +4,10 @@
   "description": "",
   "scripts": {
     "server": "npm run start --prefix server",
-    "ng1:dev": "npm run start:dev --prefix clients/angularjs"
+    "db": "docker-compose up",
+    "backend": "concurrently \"npm run db\" \"npm run server\"",
+    "ng1:dev": "npm run start:dev --prefix clients/angularjs",
+    "full:ng1:dev": "concurrently \"npm run backend\" \"npm run ng1:dev\""
   },
   "repository": {
     "type": "git",

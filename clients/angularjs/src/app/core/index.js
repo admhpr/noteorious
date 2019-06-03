@@ -1,4 +1,5 @@
 const angular = require('angular');
+import 'angular-ui-router'
 import routerSetup from './services/routes/router.service'
 import BoardsModel from './models/boards.model';
 import {
