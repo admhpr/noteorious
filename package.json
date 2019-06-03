@@ -1,0 +1,25 @@
+{
+  "name": "noteorious",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "server": "npm run start --prefix server",
+    "ng1:dev": "npm run start:dev --prefix clients/angularjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harps116/noteorious.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Adam Harpur",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harps116/noteorious/issues"
+  },
+  "homepage": "https://github.com/harps116/noteorious#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
