@@ -8,6 +8,6 @@ import {
 
 
 export default angular.module('app.core', ['ui.router'])
-    .constant(routerSetup)
+    .config(routerSetup)
     .constant('ENDPOINT_URI', ENDPOINT_URI)
     .service('BoardsModel', BoardsModel)
