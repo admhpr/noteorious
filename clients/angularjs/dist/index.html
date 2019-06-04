@@ -10,14 +10,9 @@
 </head>
 
 <body ng-app="app">
-    <div class="content">
-        <section class="main">
-            Main
-        </section>
-        <div class="sidebar">
-            Sidebar
-        </div>
-    </div>
+    <ui-view>
+        <div ui-view="home"></div>
+    </ui-view>
     <script src="app.bundle.js"></script>
 </body>
 

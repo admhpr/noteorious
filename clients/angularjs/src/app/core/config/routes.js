@@ -1,11 +1,15 @@
 export default [{
-        name: 'home',
         url: '/',
-        component: 'home'
+        name: 'home',
+        views: {
+            'home': {
+                component: 'home'
+            }
+        }
     },
     {
-        name: 'boards',
         url: '/boards',
+        name: 'boards',
         component: 'boards'
     }
 ];
