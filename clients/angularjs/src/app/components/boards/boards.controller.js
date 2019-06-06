@@ -1,5 +1,21 @@
-// export default function BoardsCtrl($scope, BoardsModel) {
-//     var ctrl = $scope;
+class BoardsController {
+    constructor(Boards) {
+        this.Boards = Boards;
+        this.getPosts();
 
-//     BoardsModel.all().then(data => ctrl.boards = data)
-// }
+        this.search = '';
+    }
+
+    getBoards() {
+        this.Boards.get()
+            .then(() => {
+                this.posts = this.Boards.getState();
+            });
+    }
+}
+
+BoardsController.$inject = ['Boards'];
+
+export {
+    BoardsController
+};
