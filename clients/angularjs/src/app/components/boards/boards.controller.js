@@ -1,8 +1,7 @@
 class BoardsController {
-    constructor(Boards) {
-        this.Boards = Boards;
-        this.getPosts();
-
+    constructor(BoardsModel) {
+        this.Boards = BoardsModel;
+        this.getBoards();
         this.search = '';
     }
 
@@ -14,7 +13,7 @@ class BoardsController {
     }
 }
 
-BoardsController.$inject = ['Boards'];
+BoardsController.$inject = ['BoardsModel'];
 
 export {
     BoardsController

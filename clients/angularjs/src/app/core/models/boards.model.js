@@ -1,11 +1,16 @@
-export default function BoardsModel($http, ENDPOINT_URI) {
-    var service = this;
+const boardsModel = ($http, ENDPOINT_URI, $q) => {
+    let allBoards = [];
+    let id = 0;
 
-    function extract(result) {
+    const getUrl = () => {
+        return ENDPOINT_URI + '/boards';
+    };
+
+    const extract = (result) => {
         return result.data;
-    }
+    };
 
-    function handleError(e) {
+    const handleError = (e) => {
         console.error(e)
         return [{
             title: "server down",
@@ -13,11 +18,33 @@ export default function BoardsModel($http, ENDPOINT_URI) {
         }]
     }
 
-    function getUrl() {
-        return ENDPOINT_URI + '/boards';
-    }
-    service.all = function () {
-        return $http.get(getUrl()).then(extract).catch(handleError);
+    const get = () => {
+        return $http.get(getUrl())
+            .then(extract).catch(handleError);
     };
 
-}
+    const getOne = (query) => {
+
+    };
+
+    const getState = () => {
+        return allBoards;
+    };
+
+    const create = (data) => {
+
+    };
+
+    return {
+        get,
+        getOne,
+        getState,
+        create
+    };
+};
+
+boardsModel.$inject = ['$http', 'ENDPOINT_URI', '$q'];
+
+export {
+    boardsModel
+};
