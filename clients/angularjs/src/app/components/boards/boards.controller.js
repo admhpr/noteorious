@@ -1,5 +1,5 @@
-export default function BoardsCtrl($scope, BoardsModel) {
-    var ctrl = $scope;
+// export default function BoardsCtrl($scope, BoardsModel) {
+//     var ctrl = $scope;
 
-    BoardsModel.all().then(data => ctrl.boards = data)
-}
+//     BoardsModel.all().then(data => ctrl.boards = data)
+// }
