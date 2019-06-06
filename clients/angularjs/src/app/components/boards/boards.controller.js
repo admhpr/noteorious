@@ -8,7 +8,7 @@ class BoardsController {
     getBoards() {
         this.Boards.get()
             .then(() => {
-                this.posts = this.Boards.getState();
+                this.boards = this.Boards.getState();
             });
     }
 }

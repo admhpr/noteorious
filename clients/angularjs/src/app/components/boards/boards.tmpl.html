@@ -1,12 +1,13 @@
 <section>
     <div>
+        {{vm}}
         <ul>
-            <li ng-repeat="board in boards">
+            <li ng-repeat="board in vm.boards">
                 <span>{{board.title}}</span>
                 <p>{{board.description}}</p>
             </li>
         </ul>
-        <form name="" class="create-form" role="form" ng-submit="" novalidate>
+        <!-- <form name="" class="create-form" role="form" ng-submit="" novalidate>
             <fieldset>
                 <div>
                     <input type="text" class="medium" ng-model="" placeholder="Board Title" required>
@@ -22,6 +23,6 @@
                     <span class="glyphicon glyphicon-plus"></span>
                 </button>
             </fieldset>
-        </form>
+        </form> -->
     </div>
 </section>
