@@ -1,14 +1,16 @@
 class BoardsController {
     constructor(BoardsModel) {
-        this.Boards = BoardsModel;
+        this.BoardsModel = BoardsModel;
         this.getBoards();
         this.search = '';
+        this.boards = [];
     }
 
     getBoards() {
-        this.Boards.get()
+        this.BoardsModel.get()
             .then(() => {
-                this.boards = this.Boards.getState();
+                console.log(this.BoardsModel.getState())
+                this.boards = this.BoardsModel.getState();
             });
     }
 }

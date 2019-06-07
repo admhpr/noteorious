@@ -6,8 +6,10 @@ const boardsModel = ($http, ENDPOINT_URI, $q) => {
         return ENDPOINT_URI + '/boards';
     };
 
-    const extract = (result) => {
-        return result.data;
+    const extract = ({
+        data
+    }) => {
+        allBoards = data
     };
 
     const handleError = (e) => {
@@ -19,6 +21,7 @@ const boardsModel = ($http, ENDPOINT_URI, $q) => {
     }
 
     const get = () => {
+        console.log(`get::BoardsModel`)
         return $http.get(getUrl())
             .then(extract).catch(handleError);
     };
