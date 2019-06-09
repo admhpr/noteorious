@@ -39,7 +39,13 @@ const boardsModel = ($http, ENDPOINT_URI, $q) => {
     return allBoards;
   };
 
-  const create = data => {};
+  const create = data => {
+    return $http({
+      data,
+      url: `${ENDPOINT_URI}/boards`,
+      method: "POST"
+    });
+  };
 
   return {
     get,
