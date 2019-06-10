@@ -1,6 +1,7 @@
-const angular = require('angular');
-import HomeComponent from './home.component';
-import core from '../../core'
+import angular from "angular";
+import HomeComponent from "./home.component";
+import core from "../../core";
 
-export default angular.module('app.home', [core.name])
-    .component('homeComponent', HomeComponent);
+export default angular
+  .module("app.home", [core.name])
+  .component("homeComponent", HomeComponent);

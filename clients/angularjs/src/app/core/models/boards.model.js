@@ -15,8 +15,8 @@ const boardsModel = ($http, ENDPOINT_URI, $q) => {
     return [
       {
         title: "server down",
-        description: "server down"
-      }
+        description: "server down",
+      },
     ];
   };
 
@@ -43,7 +43,7 @@ const boardsModel = ($http, ENDPOINT_URI, $q) => {
     return $http({
       data,
       url: `${ENDPOINT_URI}/boards`,
-      method: "POST"
+      method: "POST",
     });
   };
 
@@ -51,7 +51,7 @@ const boardsModel = ($http, ENDPOINT_URI, $q) => {
     get,
     getOne,
     getState,
-    create
+    create,
   };
 };
 
