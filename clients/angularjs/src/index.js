@@ -5,11 +5,13 @@ import boards from "./app/components/boards";
 import uiRouter from "angular-ui-router";
 import core from "./app/core";
 
-console.log(boards);
-
 angular
   .module("app", [uiRouter, core.name, boards.name])
   .config(function($stateProvider) {
+    $stateProvider.state("home", {
+      url: "/",
+      template: "<home></home>",
+    });
     $stateProvider.state("boards", {
       url: "/boards",
       template: "<boards></boards>",
