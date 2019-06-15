@@ -1,7 +1,10 @@
 import template from "./home.tmpl.html";
-import controller from "./home.controller";
+import { HomeController as controller } from "./home.controller";
 
-export default {
+export const homeComponent = {
+  restrict: "E",
   template,
   controller,
+  controllerAs: "vm",
+  scope: {},
 };
