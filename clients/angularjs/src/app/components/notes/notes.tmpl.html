@@ -1,0 +1,11 @@
+<section>
+    <div>
+        {{vm}}
+        <ul>
+            <li ng-repeat="note in vm.notes">
+                <span>{{note.title}}</span>
+                <p>{{note.description}}</p>
+            </li>
+        </ul>
+    </div>
+</section>
