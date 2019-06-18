@@ -1,15 +1,59 @@
-import angular from "angular";
-angular.module("app.core").service("NotesModel", function($http, ENDPOINT_URI) {
-  var service = this;
+const notesModel = ($http, ENDPOINT_URI, $q) => {
+  let allNotes = [];
 
-  function extract(result) {
-    return result.data;
-  }
-
-  function getUrl() {
+  const getUrl = () => {
     return ENDPOINT_URI + "/notes";
-  }
-  service.all = function() {
-    return $http.get(getUrl()).then(extract);
   };
-});
+
+  const extract = ({ data }) => {
+    allNotes = data;
+  };
+
+  const handleError = e => {
+    console.error(e);
+    return [
+      {
+        title: "server down",
+        description: "server down",
+      },
+    ];
+  };
+
+  const get = () => {
+    console.log(`get::BoardsModel`);
+    return $http
+      .get(getUrl())
+      .then(extract)
+      .catch(handleError);
+  };
+
+  const getOne = query => {
+    const note = allNotes.find(note => note.id === query.id);
+    if (note) {
+      return $q.when(note);
+    }
+  };
+
+  const getState = () => {
+    return allNotes;
+  };
+
+  const create = data => {
+    return $http({
+      data,
+      url: `${ENDPOINT_URI}/notes`,
+      method: "POST",
+    });
+  };
+
+  return {
+    get,
+    getOne,
+    getState,
+    create,
+  };
+};
+
+notesModel.$inject = ["$http", "ENDPOINT_URI", "$q"];
+
+export { notesModel };
