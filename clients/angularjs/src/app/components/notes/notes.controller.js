@@ -3,13 +3,13 @@ class NotesController {
     this.NotesModel = NotesModel;
     this.getBoards();
     this.search = "";
-    this.boards = [];
+    this.notes = [];
   }
 
   getBoards() {
     this.NotesModel.get().then(() => {
       console.log(this.NotesModel.getState());
-      this.boards = this.NotesModel.getState();
+      this.notes = this.NotesModel.getState();
     });
   }
 }
