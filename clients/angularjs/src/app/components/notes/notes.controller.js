@@ -1,12 +1,12 @@
 class NotesController {
   constructor(NotesModel) {
     this.NotesModel = NotesModel;
-    this.getBoards();
+    this.getNotes();
     this.search = "";
     this.notes = [];
   }
 
-  getBoards() {
+  getNotes() {
     this.NotesModel.get().then(() => {
       console.log(this.NotesModel.getState());
       this.notes = this.NotesModel.getState();
