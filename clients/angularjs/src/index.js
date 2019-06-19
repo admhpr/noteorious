@@ -16,5 +16,9 @@ angular
       url: "/boards",
       template: "<boards></boards>",
     });
+    $stateProvider.state("notes", {
+      url: "/notes",
+      template: "<notes></notes>",
+    });
   })
   .directive("app", appDirective);
