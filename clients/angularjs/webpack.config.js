@@ -1,12 +1,20 @@
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   context: __dirname + "/src",
   entry: {
     app: "./index.js",
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: "Angular JS..",
+    }),
+  ],
   output: {
     path: __dirname + "/dist/",
-    filename: "app.bundle.js",
+    filename: "[name].[hash].js",
   },
   module: {
     rules: [
