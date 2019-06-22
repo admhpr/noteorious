@@ -1,3 +1,4 @@
+const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
@@ -9,12 +10,12 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "Angular JS..",
+      template: "./index.html",
     }),
   ],
   output: {
-    path: __dirname + "/dist/",
     filename: "[name].[hash].js",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
