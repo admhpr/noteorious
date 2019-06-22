@@ -1,12 +1,15 @@
 import angular from "angular";
+import uiRouter from "angular-ui-router";
 import "../../assets/style.css";
 import { appDirective } from "./app.directive";
+
+// components
 import boards from "./app/components/boards";
-import uiRouter from "angular-ui-router";
+import notes from "./app/components/notes";
 import core from "./app/core";
 
 angular
-  .module("app", [uiRouter, core.name, boards.name])
+  .module("app", [uiRouter, core.name, boards.name, notes.name])
   .config(function($stateProvider) {
     $stateProvider.state("home", {
       url: "/",

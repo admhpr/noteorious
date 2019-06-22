@@ -1,5 +1,6 @@
 import routes from "../../config/routes";
 
+// TODO: not currently working
 function routerSetup($stateProvider, $urlRouterProvider, $locationProvider) {
   "ngInject";
 
