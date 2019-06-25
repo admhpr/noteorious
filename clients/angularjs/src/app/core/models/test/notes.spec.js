@@ -7,7 +7,6 @@ describe("Notes Model", function() {
   beforeEach(angular.mock.module(core.name));
 
   var notesModel;
-
   // eslint-disable-next-line no-undef
   beforeEach(inject(NotesModel => (notesModel = NotesModel)));
   it("run the test", function() {
