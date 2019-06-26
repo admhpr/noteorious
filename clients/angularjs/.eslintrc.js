@@ -18,7 +18,7 @@ module.exports = {
             'error',
             {
                 singleQuote: false,
-                trailingComma: 'all',
+                trailingComma: "es6",
             },
         ],
     },
