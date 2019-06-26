@@ -15,9 +15,11 @@ describe("Notes Model", function() {
   });
 
   describe("get", function() {
+    //TODO:
     it("should set the state to an array of objects", function() {
-      let result = notesModel.getState();
-      console.log(result);
+      return notesModel
+        .get()
+        .then(() => expect(notesModel.getState().length).toBeGreaterThan(1));
     });
   });
 });
