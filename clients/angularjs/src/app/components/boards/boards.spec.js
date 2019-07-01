@@ -18,7 +18,7 @@ describe("BoardsController", () => {
 
   describe("module", () => {
     it("should have an appropriate name", () => {
-      expect(boards.name).to.equal("boards");
+      expect(boards.name).toBe("boards");
     });
   });
 });
