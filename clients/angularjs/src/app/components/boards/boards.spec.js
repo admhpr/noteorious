@@ -15,4 +15,10 @@ describe("BoardsController", () => {
       return new BoardsController(injectables);
     };
   }));
+
+  describe("module", () => {
+    it("should have an appropriate name", () => {
+      expect(boards.name).to.equal("boards");
+    });
+  });
 });
