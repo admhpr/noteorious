@@ -20,7 +20,6 @@ const notesModel = ($http, ENDPOINT_URI, $q) => {
   };
 
   const get = () => {
-    console.log(`get::NotesModel`);
     return $http
       .get(getUrl())
       .then(extract)

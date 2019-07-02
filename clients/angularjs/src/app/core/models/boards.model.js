@@ -21,7 +21,6 @@ const boardsModel = ($http, ENDPOINT_URI, $q) => {
   };
 
   const get = () => {
-    console.log(`get::BoardsModel`);
     return $http
       .get(getUrl())
       .then(extract)

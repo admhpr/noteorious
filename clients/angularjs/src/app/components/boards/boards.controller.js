@@ -8,7 +8,6 @@ class BoardsController {
 
   getBoards() {
     this.BoardsModel.get().then(() => {
-      console.log(this.BoardsModel.getState());
       this.boards = this.BoardsModel.getState();
     });
   }

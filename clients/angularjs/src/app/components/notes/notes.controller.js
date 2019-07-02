@@ -8,7 +8,6 @@ class NotesController {
 
   getNotes() {
     this.NotesModel.get().then(() => {
-      console.log(this.NotesModel.getState());
       this.notes = this.NotesModel.getState();
     });
   }

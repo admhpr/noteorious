@@ -8,7 +8,6 @@ class HomeController {
 
   getHome() {
     this.HomeModel.get().then(() => {
-      console.log(this.HomeModel.getState());
       this.boards = this.HomeModel.getState();
     });
   }
