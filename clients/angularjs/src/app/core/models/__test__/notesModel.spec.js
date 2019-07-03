@@ -17,4 +17,6 @@ describe("Notes Model", function() {
       });
     });
   });
+
+  describe("getOne", function() {});
 });
