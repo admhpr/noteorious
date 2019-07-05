@@ -3,19 +3,22 @@ import boards from "@components/boards/index";
 import * as angularMock from "angular-mocks";
 import { boardsComponent } from "./boards.component";
 import template from "./boards.tmpl.html";
-import { BoardsModel } from "@core/models/boards.model";
+import { boardsModel } from "@core/models/boards.model";
 import { BoardsController } from "./boards.controller";
 
-jest.mock("@core/models/boards.model");
+function mockFunctions() {
+  const { boardsModel } = require.requireActual("@core/models/boards.model");
+  return boardsModel;
+}
+jest.genMockFromModule("@core/models/boards.model", () => mockFunctions());
+const _BoardsModel = require.requireMock("@core/models/boards.model");
 
 describe("BoardsController", () => {
   beforeEach(angular.mock.module(boards.name));
   let $rootScope;
   let makeController;
 
-  beforeAll(() => {
-    console.log(BoardsModel);
-  });
+  beforeAll(() => {});
 
   beforeEach(window.module(boards.name));
   // eslint-disable-next-line no-undef
@@ -57,8 +60,12 @@ describe("BoardsController", () => {
 
   describe("controller", () => {
     it("should have boards", () => {
-      const controller = makeController();
-      expect(controller.boards).any(Array);
+      const mockModel = {
+        ...boardsModel(),
+        ...{ get: jest.fn(() => new Promise(resolve => resolve([]))) },
+      };
+      const controller = makeController(mockModel);
+      expect(controller.boards).toEqual(expect.any(Array));
     });
   });
 });
