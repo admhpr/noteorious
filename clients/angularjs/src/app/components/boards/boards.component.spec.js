@@ -11,9 +11,8 @@ function mockFunctions() {
   return boardsModel;
 }
 jest.genMockFromModule("@core/models/boards.model", () => mockFunctions());
-const _BoardsModel = require.requireMock("@core/models/boards.model");
 
-describe("BoardsController", () => {
+describe("Boards Component", () => {
   beforeEach(angular.mock.module(boards.name));
   let $rootScope;
   let makeController;
