@@ -15,9 +15,15 @@ jest.genMockFromModule("@core/models/boards.model", () => mockFunctions());
 describe("Boards Component", () => {
   beforeEach(angular.mock.module(boards.name));
   let $rootScope;
+  let mockModel;
   let makeController;
 
-  beforeAll(() => {});
+  beforeAll(() => {
+    mockModel = {
+      ...boardsModel(),
+      ...{ get: jest.fn(() => new Promise(resolve => resolve([]))) },
+    };
+  });
 
   beforeEach(window.module(boards.name));
   // eslint-disable-next-line no-undef
@@ -59,10 +65,6 @@ describe("Boards Component", () => {
 
   describe("controller", () => {
     it("should have boards", () => {
-      const mockModel = {
-        ...boardsModel(),
-        ...{ get: jest.fn(() => new Promise(resolve => resolve([]))) },
-      };
       const controller = makeController(mockModel);
       expect(controller.boards).toEqual(expect.any(Array));
     });
