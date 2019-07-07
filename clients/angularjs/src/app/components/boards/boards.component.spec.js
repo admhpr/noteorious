@@ -25,7 +25,6 @@ describe("Boards Component", () => {
     };
   });
 
-  beforeEach(window.module(boards.name));
   // eslint-disable-next-line no-undef
   beforeEach(inject(_$rootScope_ => {
     $rootScope = _$rootScope_;
