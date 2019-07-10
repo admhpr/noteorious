@@ -19,4 +19,6 @@ describe("Notes Model", function() {
   });
 
   describe("getOne", function() {});
+  describe("getState", function() {});
+  describe("create", function() {});
 });
