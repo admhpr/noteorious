@@ -10,15 +10,21 @@ describe("Notes Model", function() {
   // eslint-disable-next-line no-undef
   beforeEach(inject(NotesModel => (notesModel = NotesModel)));
 
-  describe("get", function() {
-    it("should set the state to an array of objects", async function() {
+  describe("get", () => {
+    it("should set the state to an array of objects", async () => {
       notesModel.get().then(() => {
         expect(notesModel.getState().length).toBeGreaterThan(1);
       });
     });
   });
 
-  describe("getOne", function() {});
-  describe("getState", function() {});
-  describe("create", function() {});
+  describe("getOne", () => {
+    it("should get one note by id", async () => {
+      notesModel.get().then(async () => {
+        console.log("here");
+      });
+    });
+  });
+  describe("getState", () => {});
+  describe("create", () => {});
 });

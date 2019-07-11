@@ -28,6 +28,7 @@ const notesModel = ($http, ENDPOINT_URI, $q) => {
 
   const getOne = query => {
     const note = allNotes.find(note => note.id === query.id);
+    console.log(note);
     if (note) {
       return $q.when(note);
     }
