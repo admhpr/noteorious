@@ -10,6 +10,7 @@ describe("Notes Model", function() {
   // eslint-disable-next-line no-undef
   beforeEach(inject(NotesModel => (notesModel = NotesModel)));
 
+  //TODO: async issues
   describe("get", () => {
     it("should set the state to an array of objects", async () => {
       notesModel.get().then(() => {
