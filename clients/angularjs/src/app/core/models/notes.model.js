@@ -2,10 +2,11 @@ const notesModel = ($http, ENDPOINT_URI, $q) => {
   let allNotes = [];
 
   const getUrl = () => {
-    return ENDPOINT_URI + "/notes";
+    return `${ENDPOINT_URI}/notes`;
   };
 
   const extract = ({ data }) => {
+    console.log("data");
     allNotes = data;
   };
 
@@ -41,7 +42,7 @@ const notesModel = ($http, ENDPOINT_URI, $q) => {
   const create = data => {
     return $http({
       data,
-      url: `${ENDPOINT_URI}/notes`,
+      url: getUrl(),
       method: "POST",
     });
   };
