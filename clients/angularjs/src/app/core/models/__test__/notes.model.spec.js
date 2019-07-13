@@ -32,8 +32,10 @@ describe("Notes Model", function() {
   describe("get one", () => {
     it("should get one note by id", async () => {
       const data = await model.get();
+      expect(model.getOne({ id: 3 })).resolves.toEqual(
+        allNotes[allNotes.length - 1],
+      );
     });
   });
-  describe("getState", () => {});
   describe("create", () => {});
 });

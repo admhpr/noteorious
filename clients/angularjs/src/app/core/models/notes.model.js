@@ -1,4 +1,4 @@
-const notesModel = ($http, ENDPOINT_URI, $q) => {
+const notesModel = ($http, ENDPOINT_URI) => {
   let allNotes = [];
 
   const getUrl = () => {
@@ -27,9 +27,8 @@ const notesModel = ($http, ENDPOINT_URI, $q) => {
 
   const getOne = query => {
     const note = allNotes.find(note => note.id === query.id);
-    console.log(note);
     if (note) {
-      return $q.when(note);
+      return new Promise(resolve => resolve(note));
     }
   };
 
@@ -53,6 +52,6 @@ const notesModel = ($http, ENDPOINT_URI, $q) => {
   };
 };
 
-notesModel.$inject = ["$http", "ENDPOINT_URI", "$q"];
+notesModel.$inject = ["$http", "ENDPOINT_URI"];
 
 export { notesModel };
