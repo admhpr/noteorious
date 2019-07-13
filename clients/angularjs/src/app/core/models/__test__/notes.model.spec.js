@@ -1,29 +1,37 @@
 import angular from "angular";
 import core from "@core/index";
 import * as angularMock from "angular-mocks";
-import { NotesModel } from "../notes.model";
+import { notesModel } from "../notes.model";
+import { allNotes } from "../__fixtures__/notes.model.fixture";
+const mockHttp = {
+  get: jest.fn().mockImplementation(
+    url =>
+      new Promise(resolve =>
+        resolve({
+          data: allNotes,
+        }),
+      ),
+  ),
+};
 
 describe("Notes Model", function() {
   beforeEach(angular.mock.module(core.name));
 
-  let notesModel;
+  let model;
   // eslint-disable-next-line no-undef
-  beforeEach(inject(NotesModel => (notesModel = NotesModel)));
+  beforeEach(inject(NotesModel => (model = notesModel(mockHttp, {}, {}))));
 
   //TODO: async issues
   describe("get", () => {
     it("should set the state to an array of objects", async () => {
-      notesModel.get().then(() => {
-        expect(notesModel.getState().length).toBeGreaterThan(1);
-      });
+      const data = await model.get();
+      expect(model.getState()).toEqual(allNotes);
     });
   });
 
-  describe("getOne", () => {
+  describe("get one", () => {
     it("should get one note by id", async () => {
-      notesModel.get().then(async () => {
-        console.log("here");
-      });
+      const data = await model.get();
     });
   });
   describe("getState", () => {});

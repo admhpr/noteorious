@@ -6,12 +6,10 @@ const notesModel = ($http, ENDPOINT_URI, $q) => {
   };
 
   const extract = ({ data }) => {
-    console.log("data");
     allNotes = data;
   };
 
   const handleError = e => {
-    console.error(e);
     return [
       {
         title: "server down",
