@@ -17,9 +17,7 @@ requireAll(require.context("./scripts", true));
 
 angular
   .module("app", [uiRouter, core.name, boards.name, notes.name])
-  .config(function($stateProvider, $locationProvider, $urlRouterProvider) {
-    $locationProvider.html5Mode(true); // setting html5 mode to remove !# from url
-    $urlRouterProvider.otherwise("/"); // setting default route
+  .config(function($stateProvider) {
     $stateProvider.state("home", {
       url: "/",
       template: "<home></home>",
