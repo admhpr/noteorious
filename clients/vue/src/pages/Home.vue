@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="axial3d logo" src="../static/axial3d-logo.png" />
+    <img alt="logo" src="../static/logo.png" />
     <orders-table msg="Built with Vue and Bulma" />
   </div>
 </template>
