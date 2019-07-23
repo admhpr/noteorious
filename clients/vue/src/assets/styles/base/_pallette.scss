@@ -1,0 +1,9 @@
+$brand-blue: #3c4254;
+$brand-blue-invert: findColorInvert($brand-blue);
+$brand-turquoise: #47e5cc;
+$brand-turquoise-invert: findColorInvert($brand-turquoise);
+$brand-orange: #ff8735;
+$brand-orange-invert: findColorInvert($brand-orange);
+
+// Setup $colors to use as bulma classes (e.g. 'is-brand-blue')
+$colors : ("brand-blue": ($brand-blue, $brand-blue-invert), "brand-turquoise": ($brand-turquoise, $brand-turquoise-invert), "brand-orange": ($brand-orange, $brand-orange-invert));

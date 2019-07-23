@@ -1,27 +1,54 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" />
-    <div>
-      <router-link to="/">Home</router-link>
-      <router-link to="/boards">Boards</router-link>
-    </div>
-    <router-view></router-view>
+    <Navbar></Navbar>
+    <component :is="layout">
+      <template v-slot:content>
+        <router-view />
+      </template>
+    </component>
   </div>
 </template>
 
 <script>
+import Navbar from "@elements/Navbar.vue";
+const DEFAULT_LAYOUT = "default";
 export default {
-  name: "app"
+  data() {
+    return {};
+  },
+  computed: {
+    layout() {
+      return `${this.$route.meta.layout || DEFAULT_LAYOUT}-layout`;
+    }
+  },
+  components: {
+    Navbar
+  }
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "@styles/global.scss";
+</style>
+
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+#nav {
+  padding: 30px;
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
