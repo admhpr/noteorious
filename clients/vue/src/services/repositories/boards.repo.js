@@ -1,14 +1,14 @@
 import api from "@services/api/setup";
 
-const resource = "/orders";
+const resource = "/boards";
 export default {
-  getOrders() {
+  getBoards() {
     return api.get();
   },
-  getOrder(id) {
+  getBoard(id) {
     return api.get(`${resource}/${id}`);
   },
-  createOrder(payload) {
+  createBoard(payload) {
     return api.post(`${resource}`, payload);
   }
 };

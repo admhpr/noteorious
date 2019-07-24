@@ -1,7 +1,7 @@
-import orders from "./orders.repo";
+import boards from "./boards.repo";
 
 const repositories = {
-  orders
+  boards
 };
 
 export const repoAccessor = {

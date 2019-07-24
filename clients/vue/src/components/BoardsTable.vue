@@ -1,32 +1,32 @@
 <template>
   <section>
     <b-loading :is-full-page="true" :active.sync="isLoading"></b-loading>
-    <div>{{orders}}</div>
-    <button @click="createOrder"></button>
+    <div>{{boards}}</div>
+    <button @click="createBoard"></button>
   </section>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
-import { CREATE_ORDER } from "@store/orders/action.types";
+import { CREATE_BOARD } from "@store/boards/action.types";
 
-console.log(CREATE_ORDER);
+console.log(CREATE_BOARD);
 export default {
-  name: "OrdersTable",
+  name: "BoardsTable",
   props: {
     msg: String
   },
   computed: {
     ...mapState({
-      orders: ({ orders }) => orders.orders,
-      isLoading: ({ orders }) => orders.isLoading
+      boards: ({ boards }) => boards.boards,
+      isLoading: ({ boards }) => boards.isLoading
     })
   },
   methods: {
-    ...mapActions([CREATE_ORDER])
+    ...mapActions([CREATE_BOARD])
   },
   async created() {
-    this.$store.dispatch("getOrders");
+    this.$store.dispatch("getBoards");
   }
 };
 </script>

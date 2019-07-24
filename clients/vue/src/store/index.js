@@ -1,11 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-import orders from "./orders";
+import boards from "./boards";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    orders
+    boards
   }
 });

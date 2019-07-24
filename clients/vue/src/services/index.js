@@ -1,3 +1,3 @@
-import { repoAccessor } from "./repositories/acessor";
+import { repoAccessor } from "./repositories/accessor";
 
 export { repoAccessor };

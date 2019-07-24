@@ -1,16 +1,16 @@
 import { repoAccessor } from "@services";
-import { GET_ORDERS, CREATE_ORDER } from "./action.types";
-import { IS_LOADING, SET_ORDERS, ADD_ORDER } from "./mutation.types";
+import { GET_BOARDS, CREATE_BOARD } from "./action.types";
+import { IS_LOADING, SET_BOARDS, ADD_BOARD } from "./mutation.types";
 
-const repo = repoAccessor.get("orders");
+const repo = repoAccessor.get("boards");
 const state = {
-  orders: [],
+  boards: [],
   isLoading: true
 };
 
 const getters = {
-  orders(state) {
-    return state.orders;
+  boards(state) {
+    return state.boards;
   },
   isLoading(state) {
     return state.isLoading;
@@ -18,23 +18,23 @@ const getters = {
 };
 
 const actions = {
-  [GET_ORDERS]({ commit }) {
+  [GET_BOARDS]({ commit }) {
     commit(IS_LOADING);
     return repo
-      .getOrders()
+      .getBoards()
       .then(({ data }) => {
-        commit(SET_ORDERS, data);
+        commit(SET_BOARDS, data);
       })
       .catch(error => {
         throw new Error(error);
       });
   },
-  [CREATE_ORDER]({ commit }, query) {
+  [CREATE_BOARD]({ commit }, query) {
     commit(IS_LOADING);
     return repo
-      .getOrder(query)
+      .getBoard(query)
       .then(({ data }) => {
-        commit(ADD_ORDER, data);
+        commit(ADD_BOARD, data);
       })
       .catch(error => {
         throw new Error(error);
@@ -46,15 +46,15 @@ const mutations = {
   [IS_LOADING](state) {
     state.isLoading = true;
   },
-  [SET_ORDERS](state, orders) {
+  [SET_BOARDS](state, boards) {
     setTimeout(
-      () => ((state.isLoading = false), (state.orders = orders)),
+      () => ((state.isLoading = false), (state.boards = boards)),
       1000
     );
   },
-  [ADD_ORDER](state, order) {
+  [ADD_BOARD](state, order) {
     //TODO: use actual api
-    state.orders.push({ id: 3 });
+    state.boards.push({ id: 3 });
     state.isLoading = false;
   }
 };
