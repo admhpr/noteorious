@@ -1,4 +1,4 @@
-import api from "@services/api/setup";
+import api from "@services/http/setup";
 
 const resource = "/boards";
 export default {
