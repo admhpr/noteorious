@@ -49,7 +49,7 @@ const mutations = {
   [SET_BOARDS](state, boards) {
     setTimeout(
       () => ((state.isLoading = false), (state.boards = boards)),
-      1000
+      4000
     );
   },
   [ADD_BOARD](state, order) {
