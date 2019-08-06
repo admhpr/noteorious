@@ -5,7 +5,8 @@ export default function configureMediator(store, router) {
       case "boards/setBoards":
         return store.dispatch("");
     }
-  }); // listen to actions
+  });
+  // listen to actions
   // note: doesn't not wait for the result of async actions
   store.subscribeAction(({ type, payload }, state) => {
     switch (type) {
